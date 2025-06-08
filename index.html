@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulsaEmas.Id - Tukar Pulsa Jadi Emas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #000;
+      color: #FFD700;
+    }
+    header {
+      background: #111;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 0 10px #FFD70044;
+    }
+    h1 {
+      font-size: 2rem;
+      margin: 0.5rem 0;
+    }
+    p.tagline {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    .cta {
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .cta a {
+      background: #FFD700;
+      color: #000;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .cta a:hover {
+      background: #fff;
+      color: #000;
+    }
+    .section {
+      padding: 2rem;
+      text-align: center;
+    }
+    .section h2 {
+      color: #fff;
+    }
+    .faq {
+      max-width: 600px;
+      margin: auto;
+      text-align: left;
+    }
+    .faq h3 {
+      color: #FFD700;
+    }
+    .calc-container {
+      background: #111;
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #FFD70033;
+      text-align: left;
+    }
+    .calc-container label,
+    .calc-container input {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .calc-container input {
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: none;
+    }
+    .calc-container .result {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PulsaEmas.Id</h1>
+    <p class="tagline">Ubah Pulsa Jadi Emas Mulai dari 0.01 gram</p>
+  </header>
+
+  <div class="cta">
+    <a href="https://wa.me/6285951802027" target="_blank">Tukar Pulsa Sekarang</a>
+  </div>
+
+  <section class="section">
+    <h2>Kenapa PulsaEmas?</h2>
+    <p>Daripada pulsa hangus, lebih baik jadi tabungan emas digital. Semua operator diterima: Telkomsel, Indosat, XL, Tri, Axis.</p>
+  </section>
+
+  <section class="section">
+    <h2>Cara Kerja</h2>
+    <ol style="max-width: 600px; margin: auto; text-align: left;">
+      <li>Transfer pulsa ke admin</li>
+      <li>Admin konversi pulsa ke emas digital (via mitra resmi)</li>
+      <li>Emas dikirimkan ke akun digital kamu atau dicatat manual</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>Kalkulator Konversi Pulsa → Emas</h2>
+    <div class="calc-container">
+      <label for="pulsa">Masukkan nominal pulsa (Rp):</label>
+      <input type="number" id="pulsa" placeholder="contoh: 10000" />
+      <div class="result" id="result">Setelah dipotong fee 20%, kamu dapat: - gram emas</div>
+    </div>
+  </section>
+
+  <section class="section faq">
+    <h2>FAQ</h2>
+    <h3>Apakah aman?</h3>
+    <p>Ya, kami hanya bekerja sama dengan platform emas digital resmi. Proses transparan dan dicatat.</p>
+    <h3>Berapa minimal pulsa?</h3>
+    <p>Minimal Rp10.000. Kamu akan dapat emas digital senilai pulsa yang dikonversi setelah dipotong fee admin.</p>
+    <h3>Bisa tarik fisik emas?</h3>
+    <p>Bisa, jika saldo sudah cukup sesuai syarat platform mitra (misal 1 gram).</p>
+  </section>
+
+  <footer>
+    Kontak Admin: 085951802027 | Email: PulsaEmas.Id@gmail.com<br />
+    &copy; 2025 PulsaEmas.Id. All rights reserved.
+  </footer>
+
+  <script>
+    const input = document.getElementById("pulsa");
+    const result = document.getElementById("result");
+    const emasPerRupiah = 0.00000025;
+
+    input.addEventListener("input", () => {
+      const pulsa = parseFloat(input.value);
+      if (!isNaN(pulsa)) {
+        const bersih = pulsa * 0.8;
+        const emas = bersih * emasPerRupiah;
+        result.textContent = `Setelah dipotong fee 20%, kamu dapat: ${emas.toFixed(5)} gram emas`;
+      } else {
+        result.textContent = "Masukkan nominal pulsa yang valid.";
+      }
+    });
+  </script>
+</body>
+</html>
